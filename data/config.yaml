@@ -10,3 +10,18 @@ field2:
 field3: true
 field4: {{param1}}
 field5: {{param2}}
+
+{{#if CONDITION_ENABLED}}
+- descriptor: "pip-services3:parser:condition:enabled:1.0"
+{{else}}
+- descriptor: "pip-services3:parser:condition:disabled:1.0"
+{{/if}}
+
+{{#unless UNLESS_ENABLED}}
+- descriptor: "pip-services3:parser:unless:enabled:1.0"
+{{else}}
+- descriptor: "pip-services3:parser:unless:disabled:1.0"
+{{/if}}
+
+{{! This is a comment}}
+

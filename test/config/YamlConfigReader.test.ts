@@ -6,11 +6,18 @@ import { YamlConfigReader } from '../../src/config/YamlConfigReader';
 
 suite('YamlConfigReader', ()=> {
 
-    test('Config Sections', () => {
+    setup((done)=>{
+        done();
+    })
+
+    test('Config Sections', (done) => {
         let parameters = ConfigParams.fromTuples(
             "param1", "Test Param 1",
-            "param2", "Test Param 2"
+            "param2", "Test Param 2",
+            "CONDITION_ENABLED", "defined",
+            "UNLESS_ENABLED", "defined"
         );
+
         let config: ConfigParams = YamlConfigReader.readConfig(null, "./data/config.yaml", parameters);
 
         assert.equal(config.length(), 9);
@@ -23,6 +30,7 @@ suite('YamlConfigReader', ()=> {
         assert.equal(config.getAsBoolean("field3"), true);
         assert.equal(config.get("field4"), "Test Param 1");
         assert.equal(config.get("field5"), "Test Param 2");
-    });    
 
+        done();
+    });    
 });

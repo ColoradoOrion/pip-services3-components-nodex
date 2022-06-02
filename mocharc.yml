@@ -1,0 +1,9 @@
+color: true                             # Force-enable color output
+extension:                              # File extension(s) to load
+  - ts
+full-trace: true                        # Display full stack traces
+recursive: true                         # Look for tests in subdirectories
+reporter: spec                          # Specify reporter to use
+require: ts-node/register               # Require module
+timeout: 5000                           # Specify test timeout threshold (in milliseconds)
+ui: tdd                                 # Specify user interface
